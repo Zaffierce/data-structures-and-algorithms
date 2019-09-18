@@ -1,3 +1,5 @@
+package code401challenges.ArrayReverse;
+
 import java.util.Arrays;
 //We were super close with our whiteboard but we ended up using this source below to figure out 
 //what we were missing.
