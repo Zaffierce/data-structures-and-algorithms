@@ -1,5 +1,5 @@
-# Insert into the middle of an array
-Take in an array and a number, insert this number into the middle of the array.
+# Find a value in an array using a binary search
+Take in two parameters:  a sorted array with no length and a search key.  
 
 ## Challenge
 Take an array of integers that has an unknown length and a second integer that you want to insert into the middle of this array.
