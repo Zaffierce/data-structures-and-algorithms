@@ -12,7 +12,7 @@ public class BinarySearchTest {
         assertEquals(
                 "This should return 3, which is the index position of your search key",
                 3,
-                BinarySearch.BinarySearch(arr, 16)
+                code401challenges.BinarySearch.BinarySearch(arr, 16)
         );
     }
 
@@ -22,7 +22,7 @@ public class BinarySearchTest {
         assertEquals(
                 "This should return -1, as this is an empty array and the number does not exist.",
                 -1,
-                BinarySearch.BinarySearch(arr, 16)
+                code401challenges.BinarySearch.BinarySearch(arr, 16)
         );
     }
 }
