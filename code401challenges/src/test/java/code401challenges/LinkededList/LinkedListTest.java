@@ -46,24 +46,22 @@ public class LinkedListTest {
         );
     }
 
+    @Test
+    public void testkthFromEnd(){
+        LinkedList link = new LinkedList();
+        link.insert(1);
+        link.insert(2);
+        link.insert(3);
+        link.insert(4);
+        link.insert(5);
 
-//    @Test
-//    public void testToString() {
-//        //Todo
-//    }
+        assertEquals("This should return a 2, as this is the 3rd value from the end.",
+                2,
+                link.kthFromEnd(3)
+                );
+    }
 
-//    @Test
-//    public void testAppend() {
-//        LinkedList link = new LinkedList();
-//        link.insert(3);
-//        link.insert(2);
-//        link.insert(1);
-//
-//        //Todo
-//    }
-
-
-    //These two should be equal but they aren't?  Is this a java thing that one object doesn't equal another?  
+    //These two should be equal but they aren't?  Is this a java thing that one object doesn't equal another?
 //    @Test
 //    public void insertBefore() {
 //        LinkedList link_before = new LinkedList();
