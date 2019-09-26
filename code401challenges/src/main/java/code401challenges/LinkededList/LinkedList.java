@@ -7,78 +7,56 @@ public class LinkedList {
 
     Node head;
 
-    public static class Node {
-        Integer data;
+    class Node {
+        int data;
         Node next;
-        Node(Integer d){
-            data = d;
-            next = null;
+
+        Node(int data){
+            this(data, null);
+        }
+
+        Node(int data, Node next) {
+            this.data = data;
+            this.next = next;
         }
     }
 
+    public void insertHead(int val) {
+        this.head = new Node(val, this.head);
+    }
+
     public void insert(int val) {
-        if (val < 0 ) {
-            System.out.println("Value was less than 0");
-            return;
-        }
         Node new_node = new Node(val);
-        new_node.next = head;
-        head = new_node;
+        if (this.head == null) {
+            this.head = new_node;
+//            insertHead(val);
+        } else {
+            Node last_node = this.head;
+            while (last_node.next != null) {
+                last_node = last_node.next;
+            }
+            last_node.next = new_node;
+        }
     }
 
     public boolean includes(int val) {
         Node n = head;
-        boolean result = false;
+//        boolean result = false;
         while (n != null) {
             if (n.data == val) {
-                result = true;
+                return true;
             }
             n = n.next;
         }
-        return result;
+        return false;
     }
-
-//    public static void main(String[] args) {
-//        LinkedList link_before = new LinkedList();
-////        link.head = new Node(1);
-////        link.insert(3);
-////        link.insert(10);
-////        link.insert(2);
-////        link.insert(1);
-//        link_before.insert(3);
-//        link_before.insert(2);
-//        link_before.insert(1);
-//        link_before.insertBefore(3,10);
-//        System.out.println(link_before.toString());
-//
-//        LinkedList link_after = new LinkedList();
-//        link_after.insert(3);
-//        link_after.insert(10);
-//        link_after.insert(2);
-//        link_after.insert(1);
-//        System.out.println(link_after.toString());
-////        link.insertBefore(3, 10);
-//
-//
-////        link.head = new Node(1); //Head
-////        link.insert(2); //Third, or fourth if insertBefore
-////        link.insert(4); //Second
-////        link.append(12); //This adds 12 to the end.
-////        link.insert(8); //First
-////        link.insertBefore(2, 88); //Third
-////        link.insertAfter(2, 99);
-//////        System.out.println(link.includes(10)); //This returns false as 10 is not in the linked list.
-//////        System.out.println(link.includes(8)); //This returns true as 8 is in our list.
-////
-////
-//
-//    }
 
     public String toString() {
         Node n = head;
         StringBuilder result = new StringBuilder();
+        result.append("LL Results: ");
         while (n != null) {
-            result.append("\n"+Integer.toString(n.data));
+            result.append(" "+Integer.toString(n.data));
             n = n.next;
         }
         return result.toString();
@@ -96,7 +74,7 @@ public class LinkedList {
     public void insertBefore(int val, int newVal) {
         Node n = head;
         while (n.next != null) {
-            if (n.next.data.equals(val)) {
+            if (n.next.data == val) {
                 Node new_node = new Node(newVal);
                 new_node.next = n.next;
                 n.next = new_node;
@@ -109,7 +87,7 @@ public class LinkedList {
     public void insertAfter(int val, int newVal) {
         Node current = head;
         while(current.next != null) {
-            if (current.data.equals(val)){
+            if (current.data == val){
                 Node new_node = new Node(newVal);
                 new_node.next = current.next;
                 current.next = new_node;
@@ -137,6 +115,35 @@ public class LinkedList {
             result = currNode.data;
         }
         return result;
+    }
+
+    public static LinkedList mergeLists(LinkedList ll1, LinkedList ll2) {
+        LinkedList ll3 = new LinkedList();
+        ll3.insertHead(1);
+
+        Node currNode1 = ll1.head;
+        Node currNode2 = ll2.head;
+        Node currNode3 = ll3.head;
+
+        if (currNode1 == null || currNode2 == null) {
+            throw new IllegalArgumentException("Empty");
+        } else {
+            while (currNode1 != null && currNode2 != null) {
+                if (currNode1 != null) {
+                    currNode3.next = currNode1;
+                    currNode3 = currNode3.next;
+                    currNode1 = currNode1.next;
+                }
+                if (currNode2 != null) {
+                    currNode3.next = currNode2;
+                    currNode3 = currNode3.next;
+                    currNode2 = currNode2.next;
+                }
+            }
+        }
+        ll3.head = ll3.head.next;
+
+        return ll3;
     }
 
 }
