@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class StackTest {
 
-    Stack newStack = new Stack();
+    Stack<Integer> newStack = new Stack();
 
     @Before
     public void setup() {
@@ -19,22 +19,25 @@ public class StackTest {
     @Test
     public void stackPush() {
         newStack.push(4);
+        Integer answer = 4;
         assertEquals("This should push 4 to the top of our stack.",
-                4,
+                answer,
                 newStack.head.value);
     }
 
     @Test
     public void stackPeek() throws Exception {
+        Integer answer = 3;
         assertEquals("This should return the top",
-                3,
+                answer,
                 newStack.peek());
     }
 
     @Test
     public void stackPop() {
+        Integer answer = 3;
         assertEquals("This should pop the first value in the stack off",
-                3,
+                answer,
                 newStack.head.value);
     }
 

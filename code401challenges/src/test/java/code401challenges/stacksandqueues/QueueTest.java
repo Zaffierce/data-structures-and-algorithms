@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class QueueTest {
 
-    Queue newQueue = new Queue();
+    Queue<Integer> newQueue = new Queue();
     @Before
     public void setup(){
 
@@ -27,15 +27,17 @@ public class QueueTest {
 
     @Test
     public void dequeue() throws Exception {
+        Integer answer = 1;
         assertEquals("This will return the first value of our queue",
-                1,
+                answer,
                 newQueue.dequeue());
     }
 
     @Test
     public void stackPeek() throws Exception {
+        Integer answer = 1;
         assertEquals("This should return the first value of our queue",
-                1,
+                answer,
                 newQueue.stackPeek());
     }
 
