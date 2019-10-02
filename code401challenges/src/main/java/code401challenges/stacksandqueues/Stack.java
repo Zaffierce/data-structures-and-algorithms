@@ -3,19 +3,19 @@ package code401challenges.stacksandqueues;
 // Used a video for reference that Sharina provided
 // https://www.youtube.com/watch?v=STmHKGt2G-4&feature=youtu.be
 
-public class Stack {
+public class Stack<T> {
 
-    int top;
-    Node head;
+    Node<T> top;
+    Node<T> head;
 
     //Want to make this Type T but forget the syntax.  Will come back.
-    public void push(int data) {
-        Node newNode = new Node(data);
+    public void push(T data) {
+        Node<T> newNode = new Node(data);
         newNode.next = head;
         this.head = newNode;
     }
 
-    public int peek() throws Exception {
+    public T peek() throws Exception {
         if (this.head == null) {
             System.out.println("Error:  Stack is empty.");
             throw new Exception("Error:  Stack is empty");
@@ -23,12 +23,12 @@ public class Stack {
         return this.head.value; // Just returns the head value
     }
 
-    public int pop() throws Exception {
+    public T pop() throws Exception {
         if (this.head == null) {
             System.out.println("Error:  Stack is empty.");
             throw new Exception("Error:  Stack is empty");
         }
-        Node next_node = this.head; // Setting a new variable to head's next.
+        Node<T> next_node = this.head; // Setting a new variable to head's next.
         this.head = this.head.next; // Now we're setting head to next value
         return next_node.value;
     }

@@ -1,38 +1,41 @@
 package code401challenges.stacksandqueues;
 
-public class Queue {
+public class Queue<T> {
 
-    Node front;
-    Node last;
-    int size;
+    Node<T> front;
+    Node<T> last;
 
-    public Node getNewNode(int val) {
-        Node newNode = new Node(val);
-        newNode.value = val;
-        return newNode;
-    }
+//    public Node getNewNode(T val) {
+//        Node newNode = new Node<T>(val);
+//        newNode.value = val;
+//        return newNode;
+//    }
 
-    public void enqueue(int data) {
+    public void enqueue(T data) {
         if (this.last == null) {
-            front = last = getNewNode(data);
-            size++;
+            front = new Node<T>(data);
+            last = front;
             return;
         }
-        size++;
-        last.next = getNewNode(data);
+        last.next = new Node<T>(data);
         last = last.next;
+        /*
+        Node newNode = new Node();
+        back.next = newNode;
+        newNode.next = null;
+         */
     }
 
-    public int dequeue() throws Exception {
+    public T dequeue() throws Exception {
         if (this.front == null) {
             throw new Exception("Error:  Queue is empty.");
         }
-        Node next_node = this.front;
+        Node<T> next_node = this.front;
         this.front = this.front.next;
         return next_node.value;
     }
 
-    public int stackPeek() throws Exception {
+    public T stackPeek() throws Exception {
         if (this.front == null) {
             System.out.println("Error:  Stack is empty.");
             throw new Exception("Error:  Stack is empty");
