@@ -1,15 +1,14 @@
-# Using a queue method, return the oldest object in that queue.
-Take in a parameter `pref` into your dequeue method.  Pref can be `cat` or `dog`, and will return the oldest object within that specific queue.  
+# Search a string for matching characters.
+Search a string to see if there are matching bracket sets.  Return boolean.    
 
 ## Challenge
-Take in a parameter `pref` into your dequeue method.  Pref can be `cat` or `dog`, and will return the oldest object within that specific queue.
-Input:  'lucy', 'lola', 'pip' 
-Output: 'lucy'
+Take in a string that can contain any amount of characters, special or not.  Search through this string and see if the brackets have matching sets.  Return a boolean answer.
+
+Input:  `{[(hello)]}` | `[hel]lo)` | `h{e(l[l]o)!}!`  
+Output: true | false | true
 
 ## Approach & Efficiency
-Approach was to utilize existing methods and just return the head from the desired queue. 
+Approach was to take in a string, split it into an array, filter that array down to just the specific bracket characters, then search that array if each character matches.  Return a boolean answer based on findings. 
 
 ## Solution
-![](../../../../../../assets/animalshelter-pd.jpg)
-![](../../../../../../assets/animalshelter-algo.jpg)
-![](../../../../../../assets/animalshelter-pseudo.jpg)
+![](../../../../../../assets/BracketedFilterThing.JPG)
