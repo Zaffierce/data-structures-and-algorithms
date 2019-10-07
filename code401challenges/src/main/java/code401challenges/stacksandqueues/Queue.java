@@ -5,25 +5,19 @@ public class Queue<T> {
     Node<T> front;
     Node<T> last;
 
-//    public Node getNewNode(T val) {
-//        Node newNode = new Node<T>(val);
-//        newNode.value = val;
-//        return newNode;
-//    }
+    public Queue() {
+        this.front = null;
+        this.last = null;
+    }
 
     public void enqueue(T data) {
+        Node<T> new_node = new Node<T>(data);
         if (this.last == null) {
-            front = new Node<T>(data);
-            last = front;
-            return;
+            this.front = new_node;
+            this.last = this.front;
         }
-        last.next = new Node<T>(data);
+        this.last.next = new_node;
         last = last.next;
-        /*
-        Node newNode = new Node();
-        back.next = newNode;
-        newNode.next = null;
-         */
     }
 
     public T dequeue() throws Exception {
@@ -37,7 +31,6 @@ public class Queue<T> {
 
     public T stackPeek() throws Exception {
         if (this.front == null) {
-            System.out.println("Error:  Queue is empty.");
             throw new Exception("Error:  Queue is empty");
         }
         return this.front.value; // Just returns the head value
@@ -55,20 +48,18 @@ public class Queue<T> {
         return result.toString();
     }
 
-
-
-    public static void main (String[] args) throws Exception {
-        Queue newQueue = new Queue();
-
-        newQueue.enqueue(1);
-        newQueue.enqueue(2);
-        newQueue.enqueue(3);
-        System.out.println(newQueue.toString());
-        System.out.println("Peeking the queue, head value is :" +newQueue.stackPeek());
-        System.out.println("Dequeueing the queue, value is : " + newQueue.dequeue());
-        System.out.println(newQueue.toString());
-        System.out.println("Peeking the queue, head value is :" +newQueue.stackPeek());
-        System.out.println("Dequeueing the queue, value is : " + newQueue.dequeue());
-        System.out.println(newQueue.toString());
-    }
+//    public static void main (String[] args) throws Exception {
+//        Queue newQueue = new Queue();
+//
+//        newQueue.enqueue(1);
+//        newQueue.enqueue(2);
+//        newQueue.enqueue(3);
+//        System.out.println(newQueue.toString());
+//        System.out.println("Peeking the queue, head value is :" +newQueue.stackPeek());
+//        System.out.println("Dequeueing the queue, value is : " + newQueue.dequeue());
+//        System.out.println(newQueue.toString());
+//        System.out.println("Peeking the queue, head value is :" +newQueue.stackPeek());
+//        System.out.println("Dequeueing the queue, value is : " + newQueue.dequeue());
+//        System.out.println(newQueue.toString());
+//    }
 }
