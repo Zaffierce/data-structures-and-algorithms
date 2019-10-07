@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class PseudoQueueTest {
 
-    PseudoQueue test = new PseudoQueue();
+    PseudoQueue<Integer> test = new PseudoQueue();
     @Before
     public void setup() throws Exception {
         test.enqueue(1);
@@ -16,9 +16,22 @@ public class PseudoQueueTest {
     }
 
     @Test
-    public void dequeue() throws Exception {
-        assertEquals("This should return 3",
-                3,
+    public void dequeueTest() throws Exception {
+        Integer answer = 1;
+        assertEquals("This should return 1",
+                answer,
+                test.dequeue());
+    }
+
+    @Test
+    public void enqueueAndDequeueTest() throws Exception {
+        Integer answer = 4;
+        test.enqueue(4);
+        test.dequeue();
+        test.dequeue();
+        test.dequeue();
+        assertEquals("This should return 4",
+                answer,
                 test.dequeue());
     }
 }

@@ -1,5 +1,6 @@
 package code401challenges.stacksandqueues;
 
+
 import java.util.NoSuchElementException;
 
 public class PseudoQueue<T> {
@@ -12,15 +13,15 @@ public class PseudoQueue<T> {
         this.enQStack.push(value);
     }
 
+
     public T dequeue() throws Exception {
-        if(!deQStack.isEmpty()){
             while (!enQStack.isEmpty()){
                 deQStack.push(enQStack.pop());
             }
             if (deQStack.isEmpty()){
                 throw new NoSuchElementException();
             }
-        }
+
     return deQStack.pop();
     }
 }

@@ -5,5 +5,6 @@
 * [ArrayShift](code401challenges/src/main/java/code401challenges/ArrayShift)
 * [Array Binary Search Tree](code401challenges/src/main/java/code401challenges/ArrayBinarySearch)
 * [LinkedList](code401challenges/src/main/java/code401challenges/LinkededList)
+* [PseudoQueue](code401challenges/src/main/java/code401challenges/stacksandqueues)
 
 
