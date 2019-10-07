@@ -1,9 +1,9 @@
 package code401challenges.tree;
 
 public class Tree {
-    //preorder
-    //postorder
-    //inorder
+    /*
+    TODO:  Convert these from voids to return arrays and implement tests.
+     */
 
     public void inOrder(Node node) {
         if (node != null) {
@@ -12,14 +12,6 @@ public class Tree {
             inOrder(node.right);
         }
     }
-
-//    public Object[] inOrder(Node node) {
-//        if (node != null) {
-//            inOrder(node.left);
-////            System.out.println(" "+node.value);
-//            inOrder(node.right);
-//        }
-//    }
 
     public void preOrder(Node node) {
         if (node != null) {

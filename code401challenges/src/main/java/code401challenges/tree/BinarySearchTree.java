@@ -1,5 +1,8 @@
 package code401challenges.tree;
 
+//Used the source from Baeldung implementing a BST.
+//https://www.baeldung.com/java-binary-tree
+
 public class BinarySearchTree {
     Node root;
 
