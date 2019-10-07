@@ -37,8 +37,8 @@ public class Queue<T> {
 
     public T stackPeek() throws Exception {
         if (this.front == null) {
-            System.out.println("Error:  Stack is empty.");
-            throw new Exception("Error:  Stack is empty");
+            System.out.println("Error:  Queue is empty.");
+            throw new Exception("Error:  Queue is empty");
         }
         return this.front.value; // Just returns the head value
     }
