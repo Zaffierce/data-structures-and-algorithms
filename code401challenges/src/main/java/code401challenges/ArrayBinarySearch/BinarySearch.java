@@ -1,4 +1,4 @@
-package code401challenges;
+package code401challenges.ArrayBinarySearch;
 
 public class BinarySearch {
 //    public static void main(String[] args){
