@@ -22,7 +22,7 @@ public class StackTest {
         Integer answer = 4;
         assertEquals("This should push 4 to the top of our stack.",
                 answer,
-                newStack.head.value);
+                newStack.top.value);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class StackTest {
         Integer answer = 3;
         assertEquals("This should pop the first value in the stack off",
                 answer,
-                newStack.head.value);
+                newStack.top.value);
     }
 
     @Test
