@@ -37,5 +37,6 @@ Output:
  The approach was to create a queue and add every every left and right value to it, printing the values along the way.  This in terms means we hit every node from left to right, top to bottom.
  
  ## Solution
- ![](../../../../../../assets/breadth-first-tree.JPG)
+ ![](../../../../../../assets/breadth-first-tree.jpg)
+ 
  
