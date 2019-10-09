@@ -1,9 +1,9 @@
 package code401challenges.tree;
 
 public class Node {
-    int value;
-    Node left;
-    Node right;
+    public int value;
+    public Node left;
+    public Node right;
 
     public Node(int value) {
         this.value = value;
@@ -16,5 +16,9 @@ public class Node {
         this.left = left;
         this.right = right;
     }
+    // Used in the thing.
+//    public String getData() {
+//        return this.value;
+//    }
 
 }

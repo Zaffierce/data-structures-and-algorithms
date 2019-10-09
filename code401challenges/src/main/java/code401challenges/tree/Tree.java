@@ -2,9 +2,10 @@ package code401challenges.tree;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Tree {
-    Node root;
+    public Node root;
 
     //other people can call tree.inOrder() to inorder traverse the tree
     public Integer[] inOrder() {
@@ -48,6 +49,21 @@ public class Tree {
             answer.add(node.value);
         }
         return answer;
+    }
+
+    public void breadthFirst() {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            Node temp = queue.poll();
+            System.out.println(temp.value);
+            if (temp.left != null) {
+                queue.add(temp.left);
+            }
+            if (temp.right != null) {
+                queue.add(temp.right);
+            }
+        }
     }
 
 }
