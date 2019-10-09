@@ -10,12 +10,19 @@ import static org.junit.Assert.*;
 public class TreeTest {
 
     Tree tree = new Tree();
+    /*
+                    1
+                   / \
+                  3   5
+                 / \   \
+                9   12  2
+     */
 
     @Before
     public void setUp() throws Exception {
-        Node node5 = new Node(5, new Node(6), null);
-        Node node2 = new Node(2, new Node(4), node5);
-        Node rootNode = new Node(1, node2, new Node(3));
+        Node childTwo = new Node(5, new Node(2), null);
+        Node childOne = new Node(3, new Node(9), new Node(12));
+        Node rootNode = new Node(1, childOne, childTwo);
         tree = new Tree();
         tree.root = rootNode;
     }
@@ -33,6 +40,12 @@ public class TreeTest {
     @Test
     public void testPostOrder() {
         assertArrayEquals(new Integer[]{4, 6, 5, 2, 3, 1}, tree.postOrder());
+    }
+
+    @Test
+    public void testBreadthOrder() {
+        //How do you test something that returns console logs?
+        tree.breadthFirst();
     }
 
 }
