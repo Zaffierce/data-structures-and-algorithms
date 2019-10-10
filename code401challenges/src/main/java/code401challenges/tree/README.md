@@ -40,3 +40,27 @@ Output:
  ![](../../../../../../assets/breadth-first-tree.jpg)
  
  
+ ___
+ 
+ # Find the max value in a tree
+ 
+ ## Challenge
+ Find a max value in a tree and return that value
+  Input:
+ ```
+      1
+     / \
+    5   7
+   / \   \
+  9   3   0 
+ ```
+
+Output: 9
+ 
+ ## Approach & Efficiency
+ The approach was using recursion to traverse through the entire tree and set the values based on greater than or not.  Return that int afterwards.
+ 
+ ## Solution
+ ![](../../../../../../assets/findmaximumvalue-tree.jpg)
+ 
+ 

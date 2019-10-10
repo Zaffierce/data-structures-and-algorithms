@@ -21,6 +21,10 @@ public class Tree {
         return this.postOrder(this.root).toArray(new Integer[0]);
     }
 
+    public List<Integer> breadthFirst() { return this.breadthFirst(this.root); }
+
+    public int findMaximumValue() { return this.findMaximumValue(this.root); }
+
     private List<Integer> inOrder(Node node) {
         List<Integer> answer = new LinkedList<>();
         if (node != null) {
@@ -51,12 +55,15 @@ public class Tree {
         return answer;
     }
 
-    public void breadthFirst() {
+    public List<Integer> breadthFirst(Node node) {
         Queue<Node> queue = new LinkedList<>();
+        List<Integer> answer = new LinkedList<>();
+
         queue.add(root);
-        while(!queue.isEmpty()) {
+
+        while(!queue.isEmpty()){
             Node temp = queue.poll();
-            System.out.println(temp.value);
+            answer.add(temp.value);
             if (temp.left != null) {
                 queue.add(temp.left);
             }
@@ -64,6 +71,46 @@ public class Tree {
                 queue.add(temp.right);
             }
         }
+        return answer;
+    }
+
+//    public void breadthFirst() {
+//        Queue<Node> queue = new LinkedList<>();
+//        queue.add(root);
+//        while(!queue.isEmpty()) {
+//            Node temp = queue.poll();
+//            System.out.println(temp.value);
+//            if (temp.left != null) {
+//                queue.add(temp.left);
+//            }
+//            if (temp.right != null) {
+//                queue.add(temp.right);
+//            }
+//        }
+//    }
+
+//
+
+    private static int findMaximumValue(Node root) {
+        int max = Integer.MIN_VALUE;
+        int value = 0;
+        int left, right;
+
+        if (root != null) {
+            value = root.value;
+            left = findMaximumValue(root.left);
+            right = findMaximumValue(root.right);
+
+            if (left > right) {
+                max = left;
+            } else {
+                max = right;
+            }
+            if (max < value) {
+                max = value;
+            }
+        }
+        return max;
     }
 
 }

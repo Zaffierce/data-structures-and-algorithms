@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -44,8 +46,17 @@ public class TreeTest {
 
     @Test
     public void testBreadthOrder() {
-        //How do you test something that returns console logs?
-        tree.breadthFirst();
+        assertEquals("This should return the tree in breadth-first order.",
+                "1, 3, 5, 9, 12, 2]",
+            tree.breadthFirst().toString()
+        );
+    }
+
+    @Test
+    public void testMaximumValue() {
+        assertEquals("This should return the maximum integer value in our Tree, which is 12.",
+                12,
+                tree.findMaximumValue());
     }
 
 }
