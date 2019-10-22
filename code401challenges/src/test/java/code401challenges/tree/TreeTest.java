@@ -52,11 +52,15 @@ public class TreeTest {
         );
     }
 
-    @Test
-    public void testMaximumValue() {
-        assertEquals("This should return the maximum integer value in our Tree, which is 12.",
-                12,
-                tree.findMaximumValue());
-    }
+//    @Test
+//    public void testMaximumValue() {
+//        assertEquals("This should return the maximum integer value in our Tree, which is 12.",
+//                12,
+//                tree.findMaximumValue());
+//    }
+//    @Test
+//    public void testmaxWeird() {
+//        System.out.println(tree.findMaxWeird());
+//    }
 
 }

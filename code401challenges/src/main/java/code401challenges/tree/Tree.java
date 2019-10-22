@@ -23,7 +23,9 @@ public class Tree {
 
     public List<Integer> breadthFirst() { return this.breadthFirst(this.root); }
 
-    public int findMaximumValue() { return this.findMaximumValue(this.root); }
+//    public int findMaximumValue() { return this.findMaximumValue(this.root); }
+
+    public Integer findMaxWeird() { return this.findMax_weird(this.root); }
 
     private List<Integer> inOrder(Node node) {
         List<Integer> answer = new LinkedList<>();
@@ -74,6 +76,36 @@ public class Tree {
         return answer;
     }
 
+    public Boolean compare(Node root1, Node root2) {
+        if (countLeaves(root1) != countLeaves(root2)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public int countLeaves(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        else if (root.left == null && root.right == null) {
+            return 1;
+        } else {
+            return countLeaves(root.left) + countLeaves(root.right);
+        }
+    }
+
+//    public int sum(Node<Integer> root) {
+//        if (root == null) {
+//            return 0;
+//        }
+//        return sum(root.left) + sum(root.right) + root.value;
+//    }
+
+
+
+
+
 //    public void breadthFirst() {
 //        Queue<Node> queue = new LinkedList<>();
 //        queue.add(root);
@@ -91,26 +123,76 @@ public class Tree {
 
 //
 
-    private static int findMaximumValue(Node root) {
-        int max = Integer.MIN_VALUE;
-        int value = 0;
-        int left, right;
-
-        if (root != null) {
-            value = root.value;
-            left = findMaximumValue(root.left);
-            right = findMaximumValue(root.right);
-
-            if (left > right) {
-                max = left;
-            } else {
-                max = right;
-            }
-            if (max < value) {
-                max = value;
-            }
+    public int findMax_weird(Node root) {
+        if (root == null) {
+            return Integer.MIN_VALUE;
         }
-        return max;
+        return Math.max(root.value, Math.max(findMax_weird(root.left), findMax_weird(root.right)));
     }
+
+//    public int findMax(Node<Integer> root) {
+//        int answer = root.value;
+//        if (root.left != null) {
+////            Math.max finds
+////            answer = Math.max(answer, findMax(root.left));
+//            int leftSubtreeMax = findMax(root.left);
+//            if (leftSubtreeMax > answer) {
+//                answer = leftSubtreeMax;
+//            }
+//        }
+//        if (root.right != null) {
+//            int rightSubtreeMax = findMax(root.right);
+//            if (rightSubtreeMax > answer) {
+////            Math.max finds the largest value?
+////            answer = Math.max(answer, findMax(root.right));
+//                answer = rightSubtreeMax;
+//            }
+//        }
+//        return answer;
+//    }
+
+//    private static int findMaximumValue(Node root) {
+//        int max = Integer.MIN_VALUE;
+//        int value = 0;
+//        int left, right;
+//
+//        if (root != null) {
+//            value = root.value;
+//            left = findMaximumValue(root.left);
+//            right = findMaximumValue(root.right);
+//
+//            if (left > right) {
+//                max = left;
+//            } else {
+//                max = right;
+//            }
+//            if (max < value) {
+//                max = value;
+//            }
+//        }
+//        return max;
+//    }
+
+//    public int findMax(Node<Integer> root) {
+//        if (root == null) {
+//            throw new IllegalArgumentException("Empty Node");
+//        }
+//        Queue<Node<Integer>> nodesToProcess = new LinkedList<>();
+//        int max = root.value;
+//        nodesToProcess.add(root);
+//        while(!nodesToProcess.isEmpty()) {
+//            Node<Integer> currentNode = nodesToProcess.remove();
+//            if (currentNode.value > max) {
+//                max = currentNode.value;
+//            }
+//            if (currentNode.left != null) {
+//                nodesToProcess.add(currentNode.left);
+//            }
+//            if (currentNode.right != null) {
+//                nodesToProcess.add(currentNode.right);
+//            }
+//        }
+//        return max;
+//    }
 
 }
