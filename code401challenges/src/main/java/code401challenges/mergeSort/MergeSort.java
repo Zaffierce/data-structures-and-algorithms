@@ -7,10 +7,12 @@ public class MergeSort {
     public static int[] mergeSort(int[] arr) {
         int n = arr.length;
 
-        if (n > 1) {
+        if (n < 2) {
+            return arr;
+        } else {
             int mid = n / 2;
-            int[] left = new int[mid - 1];
-            int[] right = new int[mid + 1];
+            int[] left = Arrays.copyOfRange(arr, 0, mid);
+            int[] right = Arrays.copyOfRange(arr, mid, n);
             mergeSort(left);
             mergeSort(right);
             merge(left, right, arr);
@@ -23,8 +25,8 @@ public class MergeSort {
         int j = 0;
         int k = 0;
 
-        while (i < left.length && i < right.length) {
-            if (left[i] <= right[i]) {
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
                 arr[k] = left[i];
                 i++;
             } else {
@@ -33,16 +35,23 @@ public class MergeSort {
             }
             k++;
         }
-        if (i == left.length) {
+        while (j < right.length) {
             arr[k] = right[j];
-        } else {
+            j++;
+            k++;
+        }
+        while (i < left.length) {
             arr[k] = left[i];
+            i++;
+            k++;
         }
     }
 
-    public static void main (String[] args) {
-        int arr[] = {1,5,9,2,7,20};
-        System.out.println(Arrays.toString(mergeSort(arr)));
+    //TODO:  Write tests.
 
-    }
+//    public static void main (String[] args) {
+//        int arr[] = {1,5,9,2,7,20,-3};
+//        System.out.println(Arrays.toString(mergeSort(arr)));
+//
+//    }
 }
