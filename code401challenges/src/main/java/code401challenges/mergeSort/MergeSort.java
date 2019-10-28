@@ -1,4 +1,4 @@
-package code401challenges.mergeSort;
+package code401challenges.MergeSort;
 
 import java.util.Arrays;
 
@@ -46,12 +46,4 @@ public class MergeSort {
             k++;
         }
     }
-
-    //TODO:  Write tests.
-
-//    public static void main (String[] args) {
-//        int arr[] = {1,5,9,2,7,20,-3};
-//        System.out.println(Arrays.toString(mergeSort(arr)));
-//
-//    }
 }
