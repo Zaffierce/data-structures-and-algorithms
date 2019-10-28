@@ -1,15 +1,19 @@
-package code401challenges.mergeSort;
+package code401challenges.MergeSort;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.util.Arrays;
 
 public class MergeSortTest {
 
-    //TODO:  Create tests after creating functional method.
+//    MergeSort mergeSort = new MergeSort();
 
     @Test
-    public void mergeSort() {
+    public void sortArray() {
+        int arr[] = {1,5,9,2,7,20,-3};
+        System.out.println(Arrays.toString(MergeSort.mergeSort(arr)));
+        //WHY ARE YOU ANGRY AT LIFE.
+
     }
 
     @Test
