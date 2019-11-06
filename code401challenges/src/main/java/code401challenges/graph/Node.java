@@ -22,9 +22,9 @@ public class Node<T> {
         return edges.add(newEdge);
     }
 
-    public Node(T value, List<Edge<T>> neighbors){
-        this.value = value;
-        this.edges = neighbors;
-    }
+//    public Node(T value, List<Edge<T>> neighbors){
+//        this.value = value;
+//        this.edges = neighbors;
+//    }
 
 }

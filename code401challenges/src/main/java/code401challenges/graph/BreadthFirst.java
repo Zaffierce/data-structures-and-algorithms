@@ -3,21 +3,21 @@ package code401challenges.graph;
 import java.util.*;
 
 public class BreadthFirst<T> {
-    /*
-    401 Java Student by day, SQL Wizard by night.
-     */
 
-    public Node root;
+    Graph graph = new Graph();
 
-    public Set<Node<T>> breadthFirst(Node node) {
-        Queue<Node<T>> queue = new LinkedList<>();
-        Set<Node<T>> seen = new HashSet<>();
-        queue.add(root);
+    public HashSet<Node<T>> breadthFirst(Node<T> node) {
+        LinkedList<Node<T>> queue = new LinkedList<>();
+        HashSet<Node<T>> seen = new HashSet<>();
+        queue.add(node);
         while(!queue.isEmpty()) {
             Node temp = queue.poll();
-            if (!seen.contains(temp)) {
-                seen.add((Node<T>) temp.value);
-                queue.add((Node<T>) temp.value);
+            HashSet neighbors = graph.getNeighbors(temp);
+            seen.add(temp);
+            for (Object neighbor : neighbors) {
+                if (!seen.contains(neighbor)) {
+                    queue.add((Node<T>) neighbor);
+                }
             }
         }
         return seen;

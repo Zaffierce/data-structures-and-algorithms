@@ -14,7 +14,6 @@ public class GraphTest {
 
     @Before
     public void setUp() throws Exception {
-        Graph<Integer> graph = new Graph<>();
         graph.addNode(3);
         graph.addNode(7);
         graph.addNode(9);
@@ -28,10 +27,16 @@ public class GraphTest {
         Node<Integer> node3 = graph.addNode(99);
         Node<Integer> node4 = graph.addNode(100);
         graph.addEdge(node3, node4, 100);
-        Set<Integer> containNode = graph.getNeighbors(node3);
+        HashSet<Node<Integer>> containNode = graph.getNodesInSet();
         assertEquals("This should contain node4",
                 true,
                 containNode.contains(node4));
-        //and it fails.  Why?
+    }
+
+    @Test
+    public void testSize() {
+        assertEquals("This should return 5, which is the size of our graph",
+                5,
+                graph.getSize());
     }
 }
