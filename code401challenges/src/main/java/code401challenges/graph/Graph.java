@@ -11,15 +11,15 @@ public class Graph<T> {
     }
 
     public Node<T> addNode(T value) {
-        Node<T> node = new Node<T>(value);
+        Node<T> node = new Node<>(value);
         nodesInSet.add(node);
         return node;
     }
 
     public HashSet<Node<T>> getNodesInSet() { return nodesInSet; }
 
-    public Set<T> getNeighbors (Node<T> node) {
-        Set<T> neighbors = new HashSet<T>();
+    public HashSet<T> getNeighbors (Node<T> node) {
+        HashSet<T> neighbors = new HashSet<>();
 //        Set<T> neighbors = new HashSet<T>();
         for (Edge<T> potentialNeighbor : node.edges) {
             if (!neighbors.contains(potentialNeighbor.node.value)){
@@ -34,5 +34,9 @@ public class Graph<T> {
             node1.addEdgeToListOfEdges(node2, weight);
             node2.addEdgeToListOfEdges(node1, weight);
         }
+    }
+
+    public int getSize() {
+        return nodesInSet.size();
     }
 }
